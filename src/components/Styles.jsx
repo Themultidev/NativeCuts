@@ -71,7 +71,7 @@ const Styles = () => {
         if missing
       </p>
 
-      <div className="mt-10">
+      <div className="mt-10 space-x-2">
         <button className={getButtonClass('gent')} onClick={() => setActiveTab('gent')}>Gentle Men</button>
         <button className={getButtonClass('pop')} onClick={() => setActiveTab('pop')}>Pop Styles</button>
         <button className={getButtonClass('dred')} onClick={() => setActiveTab('dred')}>Dreads</button>
