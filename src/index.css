@@ -1,8 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=League+Script&display=swap');
 @import "tailwindcss";
 
-
-
 .league-script-regular {
   font-family: "League Script", cursive;
   font-weight: 400;
@@ -22,7 +20,5 @@ body {
 
 .md-navbar {
   background-image: url("/lastank.jpg");
-  
 }
-
 
