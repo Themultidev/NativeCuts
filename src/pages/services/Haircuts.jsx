@@ -77,7 +77,7 @@ const Haircuts = () => {
   const navigate = useNavigate();
 
   const handleItemClick = (serial) => {
-    navigate(`/login?service=haircut&style=${encodeURIComponent(serial)}`);
+    navigate(`/SignIn?service=haircut&style=${encodeURIComponent(serial)}`);
   };
 
   const getButtonClass = (tab) => {
