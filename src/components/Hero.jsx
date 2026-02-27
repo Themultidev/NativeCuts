@@ -19,9 +19,9 @@ const Hero = () => {
 
   return (
     <section className="bg-black min-h-screen py-30 px-5 lg:px-15 w-full" id="home">
-      <div className="flex flex-col md:flex-row items-center justify-between">
-        <div className="space-y-10">
-          <h1 className="text-6xl font-bold text-amber-50">Welcome to Native cuts</h1>
+      <div className="flex flex-col space-y-10  md:flex-row items-center justify-between">
+        <div className=" space-y-5 md:space-y-10 flex flex-col items-center justify-center md:items-start md:justify-start">
+          <h1 className="text-6xl font-bold text-amber-50 text-center">Welcome to Native cuts</h1>
           <p className="text-amber-50 text-2xl">
             where precision meets perfection <span className="font-bold">. </span>
             <span className="-skew-x-12 inline-block bg-amber-950 p-2">NATIVE!</span>

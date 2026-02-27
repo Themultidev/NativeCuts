@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import SectionHeader from './SectionHeader';
 import Swiper from 'swiper';
 import { Autoplay, Pagination } from 'swiper/modules';
 import 'swiper/css';
@@ -78,9 +79,7 @@ const Reviews = () => {
   return (
     <section className="px-5 md:px-10 min-h-screen w-full bg-black py-20 space-y-10" id="review">
       <div className="space-y-5">
-        <h1 className="text-3xl font-extrabold underline decoration-amber-500 decoration-4 underline-offset-8 text-white text-center">
-          Reviews
-        </h1>
+        <SectionHeader title="Reviews" />
         <h2 className="text-2xl sm:text-3xl lg:text-4xl text-white font-semibold text-left">
           See what other people say about us and leave your review
         </h2>

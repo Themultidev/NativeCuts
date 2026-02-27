@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import SectionHeader from './SectionHeader';
 
 const ImageGrid = ({ images, className = '' }) => (
   <div className={`grid grid-cols-3 gap-2 shrink-0 snap-start ${className}`}>
@@ -62,9 +63,7 @@ const Styles = () => {
 
   return (
     <section className="px-5 md:px-10 min-h-screen w-full bg-black py-15 space-y-4" id="styles">
-      <h1 className="text-3xl font-extrabold underline decoration-amber-500 decoration-4 underline-offset-8 mt-10 text-white text-center">
-        Hair Styles
-      </h1>
+      <SectionHeader title="Hair Styles" />
       <p className="text-sm text-white text-center font-mono">
         Choose from our many listed styles or book an{' '}
         <span className="-skew-x-12 inline-block bg-white text-black">Emergency Hair Cut 🚨</span>

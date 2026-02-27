@@ -1,3 +1,5 @@
+import SectionHeader from './SectionHeader';
+
 const serviceItems = [
   { name: 'Hair Cuts', img: '/mike3.jpg', alt: 'Haircut service sample - Native Cuts' },
   { name: 'Beard Trim/Shave', img: '/mike3.jpg', alt: 'Beard trim and shave service - Native Cuts' },
@@ -24,9 +26,7 @@ const ServiceCard = ({ name, img, alt }) => (
 const Services = () => {
   return (
     <section className="bg-black md:mx-auto md:w-1/1 flex flex-col items-center justify-between space-y-7 py-20" id="services">
-      <h1 className="text-3xl font-extrabold underline decoration-amber-500 decoration-4 underline-offset-8 mt-10 text-white">
-        Our Services
-      </h1>
+      <SectionHeader title="Our Services" />
 
       <div className="grid grid-cols-3 md:grid-cols-6 space-x-5 space-y-7 *:rounded-full *:w-[100px] *:h-[100px] *:bg-white p-1 text-sm">
         {serviceItems.map((item) => (

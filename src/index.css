@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=League+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=League+Script&family=Cormorant+Garamond:wght@300;400;600&display=swap');
 @import "tailwindcss";
 
 .league-script-regular {
@@ -18,4 +18,38 @@ body {
   box-sizing: border-box;
 }
 
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 300;
+  color: #f0ebe0;
+  text-align: center;
+  letter-spacing: 0.05em;
+  line-height: 1.1;
+}
+
+.section-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin: 18px auto 32px;
+}
+.section-divider::before,
+.section-divider::after {
+  content: '';
+  width: 80px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #b8973a);
+}
+.section-divider::after {
+  background: linear-gradient(to left, transparent, #b8973a);
+}
+.section-diamond {
+  width: 6px;
+  height: 6px;
+  background: #b8973a;
+  transform: rotate(45deg);
+  flex-shrink: 0;
+}
 
