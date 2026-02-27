@@ -33,208 +33,57 @@ const services = [
   },
 ];
 
-const styles = `
-  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Barlow:wght@300;400;500&display=swap');
-
-  .start-section {
-    font-family: 'Barlow', sans-serif;
-  }
-
-  .start-eyebrow {
-    font-size: 11px;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: #b8973a;
-    text-align: center;
-    margin-bottom: 12px;
-  }
-
-  .start-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(2.2rem, 5vw, 3.8rem);
-    font-weight: 300;
-    color: #f0ebe0;
-    text-align: center;
-    letter-spacing: 0.05em;
-    line-height: 1.1;
-  }
-
-  .start-divider {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 14px;
-    margin: 18px auto 48px;
-  }
-  .start-divider::before,
-  .start-divider::after {
-    content: '';
-    width: 80px;
-    height: 1px;
-    background: linear-gradient(to right, transparent, #b8973a);
-  }
-  .start-divider::after {
-    background: linear-gradient(to left, transparent, #b8973a);
-  }
-  .start-diamond {
-    width: 6px;
-    height: 6px;
-    background: #b8973a;
-    transform: rotate(45deg);
-    flex-shrink: 0;
-  }
-
-  .start-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-    width: min(960px, 90vw);
-  }
-
-  @media (max-width: 768px) {
-    .start-grid { grid-template-columns: 1fr; }
-  }
-  @media (min-width: 769px) and (max-width: 1024px) {
-    .start-grid { grid-template-columns: repeat(2, 1fr); }
-  }
-
-  .start-card {
-    position: relative;
-    background: rgba(8, 7, 5, 0.72);
-    border: 1px solid rgba(255, 255, 255, 0.07);
-    border-radius: 4px;
-    padding: 36px 30px 30px;
-    text-decoration: none;
-    color: inherit;
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
-    box-shadow: 0 2px 20px rgba(0,0,0,0.3);
-  }
-
-  .start-card:hover {
-    background: rgba(18, 15, 9, 0.88);
-    border-color: rgba(184, 151, 58, 0.35);
-    transform: translateY(-3px);
-    box-shadow: 0 8px 32px rgba(0,0,0,0.45), 0 0 0 1px rgba(184,151,58,0.1);
-  }
-
-  .card-top {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    margin-bottom: 16px;
-  }
-
-  .card-num {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 11px;
-    color: rgba(184, 151, 58, 0.4);
-    letter-spacing: 0.12em;
-    padding-top: 2px;
-  }
-
-  .card-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: rgba(184, 151, 58, 0.25);
-    border: 1px solid rgba(184, 151, 58, 0.5);
-    transition: background 0.3s;
-    flex-shrink: 0;
-  }
-
-  .start-card:hover .card-dot {
-    background: #b8973a;
-  }
-
-  .card-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: #f0ebe0;
-    letter-spacing: 0.03em;
-    line-height: 1.2;
-    margin-bottom: 10px;
-  }
-
-  .card-divider {
-    width: 24px;
-    height: 1px;
-    background: rgba(184, 151, 58, 0.4);
-    margin-bottom: 12px;
-    transition: width 0.3s ease;
-  }
-
-  .start-card:hover .card-divider {
-    width: 44px;
-  }
-
-  .card-desc {
-    font-size: 12.5px;
-    color: rgba(200, 190, 170, 0.45);
-    line-height: 1.75;
-    font-weight: 300;
-    letter-spacing: 0.01em;
-    flex: 1;
-  }
-
-  .card-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    margin-top: 22px;
-    font-size: 10px;
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
-    color: rgba(184, 151, 58, 0.55);
-    transition: color 0.3s, gap 0.3s;
-    font-weight: 500;
-  }
-
-  .start-card:hover .card-cta {
-    color: #b8973a;
-    gap: 10px;
-  }
-`;
-
 const Start = () => {
   return (
-    <>
-      <style>{styles}</style>
-      <div
-        className="bg-[url('/lastank.jpg')] bg-cover bg-center text-center min-h-screen flex flex-col items-center justify-center"
-        style={{ backgroundColor: 'rgba(0,0,0,0.6)', backgroundBlendMode: 'multiply' }}
-      >
-        <section className="start-section">
-          <p className="start-eyebrow">Premium Grooming Studio</p>
-          <h1 className="start-title">Choose Your Service</h1>
-          <div className="start-divider"><div className="start-diamond" /></div>
+    <div
+      className="bg-[url('/lastank.jpg')] bg-cover bg-center text-center min-h-screen flex flex-col items-center justify-center px-5 py-16"
+      style={{ backgroundColor: 'rgba(0,0,0,0.6)', backgroundBlendMode: 'multiply' }}
+    >
+     
+      <p className="text-[11px] tracking-[0.3em] uppercase text-[#b8973a] mb-3">
+        Premium Grooming Studio
+      </p>
+      <h1 className="section-title">Choose Your Service</h1>
+      <div className="section-divider"><div className="section-diamond" /></div>
 
-          <div className="start-grid">
-            {services.map((service, i) => (
-              <Link
-                key={service.name}
-                to={service.link}
-                className="start-card"
-              >
-                <div className="card-top">
-                  <span className="card-num">{String(i + 1).padStart(2, '0')}</span>
-                  <span className="card-dot" />
-                </div>
-                <h2 className="card-name">{service.name}</h2>
-                <div className="card-divider" />
-                <p className="card-desc">{service.description}</p>
-                <span className="card-cta">Book Now →</span>
-              </Link>
-            ))}
-          </div>
-        </section>
+     
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-full max-w-[960px]">
+        {services.map((service, i) => (
+          <Link
+            key={service.name}
+            to={service.link}
+            className="group bg-[rgba(8,7,5,0.72)] border border-white/[0.07] rounded p-8 no-underline flex flex-col backdrop-blur-md shadow-lg
+                       hover:bg-[rgba(18,15,9,0.88)] hover:border-[#b8973a]/35 hover:-translate-y-1 hover:shadow-xl transition-all duration-250"
+          >
+            
+            <div className="flex items-start justify-between mb-4">
+              <span className="text-[11px] text-[#b8973a]/40 tracking-wide">
+                {String(i + 1).padStart(2, '0')}
+              </span>
+              <span className="w-2 h-2 rounded-full bg-[#b8973a]/25 border border-[#b8973a]/50 group-hover:bg-[#b8973a] transition-colors" />
+            </div>
+
+            
+            <h2 className="text-xl font-semibold text-[#f0ebe0] tracking-wide mb-2">
+              {service.name}
+            </h2>
+
+           
+            <div className="w-6 h-px bg-[#b8973a]/40 mb-3 group-hover:w-11 transition-all duration-300" />
+
+           
+            <p className="text-xs text-[rgba(200,190,170,0.45)] leading-relaxed font-light flex-1">
+              {service.description}
+            </p>
+
+           
+            <span className="inline-flex items-center gap-1.5 mt-5 text-[10px] tracking-[0.28em] uppercase text-[#b8973a]/55 font-medium group-hover:text-[#b8973a] group-hover:gap-2.5 transition-all duration-300">
+              Book Now →
+            </span>
+          </Link>
+        ))}
       </div>
-    </>
+    </div>
   );
 };
 
