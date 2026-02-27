@@ -18,7 +18,7 @@ const Navbar = () => {
   };
   return (
     <>
-      <nav className=" sm-navbarblock md:hidden  bg-[url('/lastank.jpg')] p-4 z-50 fixed w-full top-0 left-0  border-b border-gray-400 ">
+      <nav className=" sm-navbar block md:hidden  bg-[url('/lastank.jpg')] bg-cover bg-center bg-no-repeat p-5 z-50 fixed w-full top-0 left-0  border-b border-gray-400 overflow-hidden">
         
         <div className="flex items-center justify-between">
           
@@ -50,7 +50,7 @@ const Navbar = () => {
         
         </div>
 
-        <div className={`${isOpen ? 'block' : 'hidden'} w-full h-fit bg-black absolute top-19 z-10 bg-cover bg-center p-4`}>
+        <div className={`${isOpen ? 'block' : 'hidden'} w-full h-fit bg-black/70 backdrop-blur-sm absolute top-19 right-0 left-0 z-10 p-4`}>
           <div className='flex flex-col space-y-2 '>
           
             <ul className=" flex flex-col space-y-5 *:font-semibold font-serif text-center league-script-regular">

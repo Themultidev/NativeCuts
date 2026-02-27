@@ -19,11 +19,11 @@ const Hero = () => {
 
   return (
     <section className="bg-black min-h-screen py-30 px-5 lg:px-15 w-full" id="home">
-      <div className="flex flex-col space-y-10  md:flex-row items-center justify-between">
+      <div className="flex flex-col space-y-15 md:space-y-10  md:flex-row items-center justify-between">
         <div className=" space-y-5 md:space-y-10 flex flex-col items-center justify-center md:items-start md:justify-start">
-          <h1 className="text-6xl font-bold text-amber-50 text-center">Welcome to Native cuts</h1>
-          <p className="text-amber-50 text-2xl">
-            where precision meets perfection <span className="font-bold">. </span>
+          <h1 className=" text-5xl md:text-6xl  md:font-bold text-amber-50 text-center">Welcome to Native cuts</h1>
+          <p className="text-amber-50 text-[15px] md:text-2xl  text-center md:text-left">
+             <span className="font-thin">where precision meets perfection. </span>
             <span className="-skew-x-12 inline-block bg-amber-950 p-2">NATIVE!</span>
           </p>
           <div className="flex gap-2 *:p-2 *:border-2 *:border-gray-400">
@@ -36,19 +36,19 @@ const Hero = () => {
         <div className="flex items-center justify-center">
           
 
-          <div className="hero-swiper swiper w-[400px] md:w-[300px] lg:w-[400px] border-2 border-gray-400 overflow-hidden rounded-lg">
-            <div className="swiper-wrapper">
-              <div className="swiper-slide p-5">
-                <img src="/mike.jpg" className="object-cover w-full h-[70vh] md:h-[80vh]" alt="Native Cuts hairstyle example 1" />
+          <div className="hero-swiper swiper w-[400px] md:w-[300px] lg:w-[400px] border-2  border-gray-500 overflow-hidden md:rounded-lg rounded-2xl">
+            <div className="swiper-wrapper *:p-5 ">
+              <div className="swiper-slide ">
+                <img src="/mike.jpg" className="object-contain md:object-cover w-full h-[30vh] md:h-[80vh]" alt="Native Cuts hairstyle example 1" />
               </div>
-              <div className="swiper-slide p-5">
-                <img src="/mike2.jpg" className="object-cover w-full h-[70vh] md:h-[80vh]" alt="Native Cuts hairstyle example 2" />
+              <div className="swiper-slide ">
+                <img src="/mike2.jpg" className="object-contain md:object-cover w-full h-[30vh] md:h-[80vh]" alt="Native Cuts hairstyle example 2" />
               </div>
-              <div className="swiper-slide p-5">
-                <img src="/mike3.jpg" className="object-cover w-full h-[70vh] md:h-[80vh]" alt="Native Cuts hairstyle example 3" />
+              <div className="swiper-slide ">
+                <img src="/mike3.jpg" className="object-contain md:object-cover w-full h-[30vh] md:h-[80vh]" alt="Native Cuts hairstyle example 3" />
               </div>
-              <div className="swiper-slide p-5">
-                <img src="/mike4.jpg" className="object-cover w-full h-[70vh] md:h-[80vh]" alt="Native Cuts hairstyle example 4" />
+              <div className="swiper-slide ">
+                <img src="/mike4.jpg" className="object-contain md:object-cover w-full h-[30vh] md:h-[80vh]" alt="Native Cuts hairstyle example 4" />
               </div>
             </div>
           </div>
