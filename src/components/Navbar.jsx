@@ -50,7 +50,7 @@ const Navbar = () => {
         
         </div>
 
-        <div className={`${isOpen ? 'block' : 'hidden'} w-full h-fit bg-black/70 backdrop-blur-sm absolute top-19 right-0 left-0 z-10 p-4`}>
+        <div className={`${isOpen ? 'block' : 'hidden'} w-full bg-black/90 absolute top-full right-0 left-0 z-10 p-4`}>
           <div className='flex flex-col space-y-2 '>
           
             <ul className=" flex flex-col space-y-5 *:font-semibold font-serif text-center league-script-regular">
