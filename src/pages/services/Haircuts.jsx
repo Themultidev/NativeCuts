@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../../components/Navbar';
+import SectionHeader from '../../components/SectionHeader';
 const gentItems = Array.from({ length: 10 }, (_, i) => `Gent${i + 1}`);
 const popItems = Array.from({ length: 10 }, (_, i) => `pop${i + 1}`);
 const dredItems = Array.from({ length: 10 }, (_, i) => `dred${i + 1}`);
@@ -93,9 +94,7 @@ const Haircuts = () => {
     <Navbar/>
     <div className="py-20 bg-black text-center min-h-screen flex flex-col items-center justify-center">
       <section className="px-5 md:px-10 min-h-screen w-full py-15 space-y-4" id="styles">
-        <h1 className="text-3xl font-extrabold underline decoration-amber-500 decoration-4 underline-offset-8 mt-10 text-white text-center">
-          Hair Styles
-        </h1>
+        <SectionHeader title="Hair Styles" />
         <p className="text-sm text-white text-center font-mono">
           Choose from our many listed styles or book an{' '}
           <span className="-skew-x-12 inline-block bg-white text-black">Emergency Hair Cut 🚨</span>
