@@ -27,10 +27,25 @@ const Navbar = () => {
           </Link>
 
 
+          <button className="text-white hover:text-gray-200 p-1" onClick={handleOpen}>
+            {isOpen ? (
+              <svg width="30" height="30" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                {/* Open scissors — handle right, blade left */}
+                <line x1="4" y1="12" x2="28" y2="4" stroke="white" strokeWidth="2.5" strokeLinecap="round" />
+                <line x1="4" y1="28" x2="28" y2="36" stroke="white" strokeWidth="2.5" strokeLinecap="round" />
+                <circle cx="31" cy="7" r="4" stroke="white" strokeWidth="2" fill="none" />
+                <circle cx="31" cy="33" r="4" stroke="white" strokeWidth="2" fill="none" />
+              </svg>
+            ) : (
+              <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <line x1="3" y1="6" x2="21" y2="6" stroke="white" strokeWidth="2" strokeLinecap="round" />
+                <line x1="3" y1="12" x2="21" y2="12" stroke="white" strokeWidth="2" strokeLinecap="round" />
+                <line x1="3" y1="18" x2="21" y2="18" stroke="white" strokeWidth="2" strokeLinecap="round" />
+              </svg>
+            )}
+          </button>
+
           
-          <div>
-            <button className="text-white hover:text-gray-200 border" onClick={()=>handleOpen()}>hamm</button>
-          </div>
 
         
         </div>
@@ -38,7 +53,7 @@ const Navbar = () => {
         <div className={`${isOpen ? 'block' : 'hidden'} w-full h-fit bg-black absolute top-19 z-10 bg-cover bg-center p-4`}>
           <div className='flex flex-col space-y-2 '>
           
-            <ul className=" flex flex-col space-y-4 *:font-semibold font-serif text-center">
+            <ul className=" flex flex-col space-y-5 *:font-semibold font-serif text-center league-script-regular">
               <li >
                 <a href="#home" onClick={(e) => scrollToSection(e, 'home')} className="text-white hover:text-gray-200  ">Home</a>
               </li>
@@ -56,7 +71,7 @@ const Navbar = () => {
               </li>
             </ul>
 
-            <div className='text-center'>
+            <div className='text-center mt-5'>
                 <Link to="/SignIn" className="p-2 rounded bg-gray-200 px-8 text-gray-800 border-2 border-gray-400 font-semibold">Sign In🪓</Link>
             </div>
           </div>
