@@ -18,11 +18,11 @@ const Navbar = () => {
   };
   return (
     <>
-      <nav className=" sm-navbar block md:hidden  bg-[url('/lastank.jpg')] bg-cover bg-center bg-no-repeat p-5 z-50 fixed w-full top-0 left-0  border-b border-gray-400 overflow-hidden">
+      <nav className=" sm-navbar block md:hidden  bg-[url('/lastank.jpg')] bg-cover bg-center bg-no-repeat p-5 z-50 fixed top-0 left-0 right-0  border-b border-gray-400 ">
         
         <div className="flex items-center justify-between">
           
-          <Link to="" className="text-2xl font-bold text-white bg-black border border-gray-400 rounded-full">
+          <Link to="" className="text-2xl font-bold text-white bg-black border border-gray-400 rounded-full"> 
             <img src="/nativecuts.jpg" alt="Native Cuts Logo" className="h-10 w-10 inline-block rounded-full" />
           </Link>
 

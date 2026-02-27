@@ -20,23 +20,27 @@ const Hero = () => {
   return (
     <section className="bg-black min-h-screen py-30 px-5 lg:px-15 w-full" id="home">
       <div className="flex flex-col space-y-15 md:space-y-10  md:flex-row items-center justify-between">
-        <div className=" space-y-5 md:space-y-10 flex flex-col items-center justify-center md:items-start md:justify-start">
-          <h1 className=" text-5xl md:text-6xl  md:font-bold text-amber-50 text-center">Welcome to Native cuts</h1>
+        
+        <div className="flex flex-col space-y-5 md:space-y-10 ">
+          
+          <h1 className=" text-5xl md:text-6xl  md:font-bold text-amber-50 text-center md:text-left ">Welcome to Native cuts</h1>
+          
           <p className="text-amber-50 text-[15px] md:text-2xl  text-center md:text-left">
-             <span className="font-thin">where precision meets perfection. </span>
+             <span className="font-thin md:font-normal">where precision meets perfection. </span>
             <span className="-skew-x-12 inline-block bg-amber-950 p-2">NATIVE!</span>
           </p>
-          <div className="flex gap-2 *:p-2 *:border-2 *:border-gray-400">
+          
+          <div className="flex justify-center gap-2 *:p-2 *:border-2 *:border-gray-400 md:justify-start ">
             <Link className="bg-amber-950 font-semibold cursor-pointer md:text-sm text-white" to="/start">Get Started</Link>
             <a className="bg-white font-semibold cursor-pointer md:text-sm">Emergency Cut 🚨</a>
           </div>
 
         </div>
 
-        <div className="flex items-center justify-center">
+        <div className="flex items-center justify-center ">
           
 
-          <div className="hero-swiper swiper w-[400px] md:w-[300px] lg:w-[400px] border-2  border-gray-500 overflow-hidden md:rounded-lg rounded-2xl">
+          <div className="hero-swiper swiper w-full max-w-[400px] md:w-[300px] lg:w-[400px] border-2  border-gray-500 overflow-hidden md:rounded-lg rounded-2xl">
             <div className="swiper-wrapper *:p-5 ">
               <div className="swiper-slide ">
                 <img src="/mike.jpg" className="object-contain md:object-cover w-full h-[30vh] md:h-[80vh]" alt="Native Cuts hairstyle example 1" />
