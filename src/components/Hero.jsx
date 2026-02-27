@@ -18,7 +18,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="bg-black min-h-screen py-30 px-5 lg:px-15 w-full" id="home">
+    <section className="bg-black min-h-screen py-30 px-5 md:px-10 lg:px-15 w-full" id="home">
       <div className="flex flex-col space-y-15 md:space-y-10  md:flex-row items-center justify-between">
         
         <div className="flex flex-col space-y-5 md:space-y-10 ">
@@ -37,7 +37,7 @@ const Hero = () => {
 
         </div>
 
-        <div className="flex items-center justify-center ">
+        <div className="flex items-center justify-center w-full min-w-0 overflow-hidden">
           
 
           <div className="hero-swiper swiper w-full max-w-[400px] md:w-[300px] lg:w-[400px] border-2  border-gray-500 overflow-hidden md:rounded-lg rounded-2xl">
