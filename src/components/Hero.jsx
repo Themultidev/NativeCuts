@@ -37,9 +37,8 @@ const Hero = () => {
 
         </div>
 
-        <div className="flex items-center justify-center w-full min-w-0 overflow-hidden">
+        <div className="flex items-center justify-center w-full md:w-1/2 lg:w-1/3 ">
           
-
           <div className="hero-swiper swiper w-full max-w-[400px] md:w-[300px] lg:w-[400px] border-2  border-gray-500 overflow-hidden md:rounded-lg rounded-2xl">
             <div className="swiper-wrapper *:p-5 ">
               <div className="swiper-slide ">
@@ -57,6 +56,7 @@ const Hero = () => {
             </div>
           </div>
         </div>
+        
       </div>
     </section>
   );
