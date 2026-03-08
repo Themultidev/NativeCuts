@@ -91,7 +91,7 @@ const Haircuts = () => {
 
   return (
     <>
-    <Navbar className=" hidden" />
+    <Navbar/>
     <div className="py-20 bg-black text-center min-h-screen flex flex-col items-center justify-center">
       <section className="px-5 md:px-10 min-h-screen w-full py-15 space-y-4" id="styles">
         <SectionHeader title="Hair Styles" />
