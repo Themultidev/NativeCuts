@@ -13,19 +13,24 @@ import HairTreatment from './pages/services/HairTreatment.jsx';
 import KidsCut from './pages/services/KidsCut.jsx';
 
 import SignIn from './pages/SignIn.jsx';
+import PageCookies from './components/Cookies.jsx';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 const router = createBrowserRouter([
-  { path: '/', element: <App /> },
-  { path: '/start', element: <Start /> },
-  { path: '/SignIn', element: <SignIn /> },
-  {path: '/Haircuts', element: <Haircuts /> },
-  {path: '/BeardTrimsOrShave', element: <BeardTrimsOrShave /> },
-  {path: '/HairColorOrDye', element: <HairColorOrDye /> },
-  {path: '/LineOrEdgeUp', element: <LineOrEdgeUp /> },
-  {path: '/HairTreatment', element: <HairTreatment /> },
-  {path: '/KidsCut', element: <KidsCut /> },
-
+  {
+    element: <PageCookies />,
+    children: [
+      { path: '/', element: <App /> },
+      { path: '/start', element: <Start /> },
+      { path: '/SignIn', element: <SignIn /> },
+      { path: '/Haircuts', element: <Haircuts /> },
+      { path: '/BeardTrimsOrShave', element: <BeardTrimsOrShave /> },
+      { path: '/HairColorOrDye', element: <HairColorOrDye /> },
+      { path: '/LineOrEdgeUp', element: <LineOrEdgeUp /> },
+      { path: '/HairTreatment', element: <HairTreatment /> },
+      { path: '/KidsCut', element: <KidsCut /> },
+    ],
+  },
 ]);
 
 createRoot(document.getElementById('root')).render(
