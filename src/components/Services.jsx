@@ -1,23 +1,23 @@
 import SectionHeader from './SectionHeader';
 
 const serviceItems = [
-  { name: 'Hair Cuts', img: '/mike3.jpg', alt: 'Haircut service sample - Native Cuts' },
-  { name: 'Beard Trim/Shave', img: '/mike3.jpg', alt: 'Beard trim and shave service - Native Cuts' },
-  { name: 'Hair coloring/dye', img: '/mike3.jpg', alt: 'Hair coloring and dye service - Native Cuts' },
-  { name: 'Line-up/edge-up', img: '/mike3.jpg', alt: 'Line-up and edge-up service - Native Cuts' },
-  { name: 'Facial or scalp treatment', img: '/mike3.jpg', alt: 'Facial and scalp treatment - Native Cuts' },
-  { name: 'Kids cut', img: '/mike3.jpg', alt: 'Kids haircuts - Native Cuts' },
+  { name: 'Hair Cuts', img: '/servicesimgs/haircuts.jpg', alt: 'Haircut service sample - Native Cuts' },
+  { name: 'Beard Trim/Shave', img: '/servicesimgs//beardtrim.png', alt: 'Beard trim and shave service - Native Cuts' },
+  { name: 'Hair coloring/dye', img: '/servicesimgs//dyeing.png', alt: 'Hair coloring and dye service - Native Cuts', },
+  { name: 'Line-up/edge-up', img: '/servicesimgs/lineups.png', alt: 'Line-up and edge-up service - Native Cuts',  },
+  { name: 'Facial or scalp treatment', img: '/servicesimgs//facials-&-scalps.png', alt: 'Facial and scalp treatment - Native Cuts' },
+  { name: 'Kids cut', img: '/servicesimgs//kidscut.png', alt: 'Kids haircuts - Native Cuts' },
 ];
 
 const premiumItems = [
-  { name: 'Home service💎', img: '/mike3.jpg', alt: 'Home service - Native Cuts' },
-  { name: 'Escort 📛', img: '/mike3.jpg', alt: 'Escort service - Native Cuts' },
+  { name: 'Home service💎', img: '/servicesimgs//mike3.jpg', alt: 'Home service - Native Cuts' },
+  { name: 'Escort 📛', img: '/servicesimgs//mike3.jpg', alt: 'Escort service - Native Cuts' },
 ];
 
-const ServiceCard = ({ name, img, alt }) => (
-  <div>
-    <img className="object-cover h-full w-full rounded-full transition-all hover:scale-150" src={img} alt={alt} />
-    <div className="w-25 h-12.5 bg-black rounded-b-full relative -top-[50%] opacity-50 text-center text-white font-extrabold text-sm">
+const ServiceCard = ({ name, img, alt, }) => (
+  <div className="overflow-hidden">
+    <img className={`object-cover h-full w-full rounded-full transition-all hover:scale-100 scale-150 '`} src={img} alt={alt} />
+    <div className="w-25 h-12.5 bg-black rounded-b-full relative -top-[50%] opacity-50 text-center text-white font-bold text-[11px]">
       {name}
     </div>
   </div>
