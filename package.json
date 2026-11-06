@@ -5,6 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "server": "node src/server/index.js",
+    "promote-admin": "node src/server/promote-admin.js",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
@@ -49,5 +51,8 @@
   "bugs": {
     "url": "https://github.com/Themultidev/NativeCuts/issues"
   },
-  "homepage": "https://github.com/Themultidev/NativeCuts#readme"
+  "homepage": "https://github.com/Themultidev/NativeCuts#readme",
+  "allowScripts": {
+    "esbuild@0.27.3": true
+  }
 }
