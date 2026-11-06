@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import SectionHeader from './SectionHeader';
+import Observe from './Observe';
 
 const ImageGrid = ({ images, className = '' }) => (
   <div className={`grid grid-cols-3 gap-2 shrink-0 snap-start ${className}`}>
@@ -66,14 +67,16 @@ const Styles = () => {
       <SectionHeader title="Hair Styles" />
       <p className="text-sm text-white text-center font-mono">
         Choose from our many listed styles or book an{' '}
-        <span className="-skew-x-12 inline-block bg-white text-black">Emergency Hair Cut 🚨</span>
-        if missing
+        <span className="-skew-x-12 inline-block bg-white text-black">Emergency Hair Cut</span>
       </p>
 
-      <div className="mt-10 space-x-2">
-        <button className={getButtonClass('gent')} onClick={() => setActiveTab('gent')}>Gentle Men</button>
-        <button className={getButtonClass('pop')} onClick={() => setActiveTab('pop')}>Pop Styles</button>
-        <button className={getButtonClass('dred')} onClick={() => setActiveTab('dred')}>Dreads</button>
+      <div className="styles-controls-row">
+        <div className="mt-10 space-x-2 styles-tabs">
+          <button className={getButtonClass('gent')} onClick={() => setActiveTab('gent')}>Gentle Men</button>
+          <button className={getButtonClass('pop')} onClick={() => setActiveTab('pop')}>Pop Styles</button>
+          <button className={getButtonClass('dred')} onClick={() => setActiveTab('dred')}>Dreads</button>
+        </div>
+        <Observe compact />
       </div>
 
       {activeTab === 'gent' && (

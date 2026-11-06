@@ -79,7 +79,7 @@ const Navbar = () => {
             </ul>
 
             <div className='text-center mt-5'>
-                <Link to="/SignIn" className="p-2 rounded bg-gray-200 px-8 text-gray-800 border-2 border-gray-400 font-semibold">Sign In🪓</Link>
+                <Link to="/SignIn" className="p-2 rounded bg-gray-200 px-8 text-gray-800 border-2 border-gray-400 font-semibold">Sign In</Link>
             </div>
           </div>
         </div>
@@ -110,7 +110,7 @@ const Navbar = () => {
           </ul>
 
           <div>
-              <Link to="/SignIn" className="p-2 rounded bg-gray-200 px-8 text-gray-800 border-2 border-gray-400 font-semibold">Sign In🪓</Link>
+              <Link to="/SignIn" className="p-2 rounded bg-gray-200 px-8 text-gray-800 border-2 border-gray-400 font-semibold">Sign In</Link>
           </div>
             
         </div>

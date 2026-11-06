@@ -32,7 +32,7 @@ const Hero = () => {
           
           <div className="flex justify-center gap-2 *:p-2 *:border-2 *:border-gray-400 md:justify-start ">
             <Link className="bg-amber-950 font-semibold cursor-pointer md:text-sm text-white" to="/start">Get Started</Link>
-            <a className="bg-white font-semibold cursor-pointer md:text-sm">Emergency Cut 🚨</a>
+            <a className="bg-white font-semibold cursor-pointer md:text-sm">Emergency Cut</a>
           </div>
 
         </div>
@@ -48,7 +48,7 @@ const Hero = () => {
                 <img src="/mike2.jpg" className="object-contain md:object-cover w-full h-[30vh] md:h-[80vh]" alt="Native Cuts hairstyle example 2" />
               </div>
               <div className="swiper-slide ">
-                <img src="/mike3.jpg" className="object-contain md:object-cover w-full h-[30vh] md:h-[80vh]" alt="Native Cuts hairstyle example 3" />
+                <img src="/IMG_1915.jpg" className="object-contain md:object-cover w-full h-[30vh] md:h-[80vh]" alt="Native Cuts hairstyle example 3" />
               </div>
               <div className="swiper-slide ">
                 <img src="/mike4.jpg" className="object-contain md:object-cover w-full h-[30vh] md:h-[80vh]" alt="Native Cuts hairstyle example 4" />

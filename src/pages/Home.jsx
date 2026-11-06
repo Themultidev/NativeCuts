@@ -5,6 +5,7 @@ import Hero from "../components/Hero";
 import Services from "../components/Services";
 import Styles from "../components/Styles";
 import Reviews from "../components/Reviews";
+import FloatingPlayer from "../components/FloatingPlayer";
 
 const Home = () => {
     const { hash } = useLocation();
@@ -19,13 +20,14 @@ const Home = () => {
     }, [hash]);
 
     return(
-        <>
+        <main className="landing-page">
         <Navbar/>
         <Hero/>
         <Services/>
         <Styles/>
         <Reviews/>
-        </>
+        <FloatingPlayer/>
+        </main>
     );
 }
 
