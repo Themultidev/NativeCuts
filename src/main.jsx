@@ -13,6 +13,9 @@ import HairTreatment from './pages/services/HairTreatment.jsx';
 import KidsCut from './pages/services/KidsCut.jsx';
 
 import SignIn from './pages/SignIn.jsx';
+import Dashboard from './pages/Dashboard.jsx';
+import AdminDashboard from './pages/AdminDashboard.jsx';
+import AuthGuard from './components/AuthGuard.jsx';
 import PageCookies from './components/Cookies.jsx';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
@@ -23,6 +26,8 @@ const router = createBrowserRouter([
       { path: '/', element: <App /> },
       { path: '/start', element: <Start /> },
       { path: '/SignIn', element: <SignIn /> },
+      { path: '/dashboard', element: <AuthGuard><Dashboard /></AuthGuard> },
+      { path: '/native-control-7f3a9d', element: <AuthGuard admin><AdminDashboard /></AuthGuard> },
       { path: '/Haircuts', element: <Haircuts /> },
       { path: '/BeardTrimsOrShave', element: <BeardTrimsOrShave /> },
       { path: '/HairColorOrDye', element: <HairColorOrDye /> },
