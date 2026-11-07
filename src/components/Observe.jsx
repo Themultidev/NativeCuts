@@ -1,11 +1,21 @@
 import { useEffect, useRef, useState } from 'react';
 
 const VIEWS = ['Front', 'Side', 'Back'];
-const MOODS = {
-  Calm: ['Low taper', 'Classic low cut', 'Soft fade'],
-  Burti: ['Burst fade', 'Textured burst', 'Curved burst'],
-  Rough: ['Rugged crop', 'Sharp drop fade', 'Natural twist fade'],
-};
+const MOODS = ['Calm', 'Burti', 'Rough'];
+
+const resizeImage = (source, maxSize = 900) => new Promise((resolve, reject) => {
+  const image = new Image();
+  image.onload = () => {
+    const scale = Math.min(1, maxSize / Math.max(image.naturalWidth, image.naturalHeight));
+    const canvas = document.createElement('canvas');
+    canvas.width = Math.round(image.naturalWidth * scale);
+    canvas.height = Math.round(image.naturalHeight * scale);
+    canvas.getContext('2d').drawImage(image, 0, 0, canvas.width, canvas.height);
+    resolve(canvas.toDataURL('image/jpeg', 0.78));
+  };
+  image.onerror = reject;
+  image.src = source;
+});
 
 const CameraIcon = () => (
   <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -19,7 +29,8 @@ const Observe = ({ compact = false }) => {
   const [mood, setMood] = useState('Calm');
   const [photos, setPhotos] = useState([]);
   const [error, setError] = useState('');
-  const [recommendation, setRecommendation] = useState('');
+  const [recommendation, setRecommendation] = useState(null);
+  const [analyzing, setAnalyzing] = useState(false);
   const videoRef = useRef(null);
   const streamRef = useRef(null);
 
@@ -43,17 +54,28 @@ const Observe = ({ compact = false }) => {
     const video = videoRef.current;
     if (!video?.videoWidth || photos.length === 3) return;
     const canvas = document.createElement('canvas');
-    canvas.width = video.videoWidth;
-    canvas.height = video.videoHeight;
-    canvas.getContext('2d').drawImage(video, 0, 0);
-    setPhotos((current) => [...current, canvas.toDataURL('image/jpeg', 0.86)]);
+    const scale = Math.min(1, 900 / Math.max(video.videoWidth, video.videoHeight));
+    canvas.width = Math.round(video.videoWidth * scale);
+    canvas.height = Math.round(video.videoHeight * scale);
+    canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
+    setPhotos((current) => [...current, canvas.toDataURL('image/jpeg', 0.78)]);
+    setRecommendation(null);
   };
 
   const upload = (event) => {
     const file = event.target.files?.[0];
     if (!file || photos.length === 3) return;
     const reader = new FileReader();
-    reader.onload = () => setPhotos((current) => [...current, reader.result]);
+    reader.onload = async () => {
+      try {
+        const resized = await resizeImage(reader.result);
+        setPhotos((current) => [...current, resized]);
+        setRecommendation(null);
+        setError('');
+      } catch {
+        setError('That image could not be prepared. Choose a JPEG, PNG or WebP image.');
+      }
+    };
     reader.readAsDataURL(file);
     event.target.value = '';
   };
@@ -64,9 +86,35 @@ const Observe = ({ compact = false }) => {
     setOpen(false);
   };
 
-  const observe = () => {
-    const pool = MOODS[mood];
-    setRecommendation(pool[Math.floor(Math.random() * pool.length)]);
+  const observe = async () => {
+    setAnalyzing(true);
+    setError('');
+    setRecommendation(null);
+    try {
+      const response = await fetch('/api/observe/recommend', {
+        method: 'POST',
+        credentials: 'include',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ mood, photos }),
+      });
+      const data = await response.json();
+      if (!response.ok) throw new Error(data.message || 'Observe could not complete the recommendation.');
+      if (data.status === 'retake') {
+        setError(data.message);
+        return;
+      }
+      setRecommendation(data);
+    } catch (requestError) {
+      setError(requestError.message);
+    } finally {
+      setAnalyzing(false);
+    }
+  };
+
+  const retake = () => {
+    setPhotos([]);
+    setRecommendation(null);
+    startCamera();
   };
 
   return (
@@ -99,21 +147,26 @@ const Observe = ({ compact = false }) => {
         <div className="observe-moods">
           <span>Choose your energy</span>
           <div role="group" aria-label="Observe mood">
-            {Object.keys(MOODS).map((item) => (
-              <button key={item} className={mood === item ? 'active' : ''} onClick={() => { setMood(item); setRecommendation(''); }}>{item}</button>
+            {MOODS.map((item) => (
+              <button key={item} className={mood === item ? 'active' : ''} onClick={() => { setMood(item); setRecommendation(null); setError(''); }}>{item}</button>
             ))}
           </div>
-          <button className="observe-submit" disabled={photos.length < 3} onClick={observe}>
-            {photos.length < 3 ? `${3 - photos.length} views to go` : 'Find my look'}
+          <button className="observe-submit" disabled={photos.length < 3 || analyzing} onClick={observe}>
+            {analyzing ? 'Native is observing...' : photos.length < 3 ? `${3 - photos.length} views to go` : 'Find my look'}
           </button>
         </div>
       </div>
 
+      {!open && error && <p className="observe-error" role="alert">{error}</p>}
+
       {recommendation && (
         <div className="observe-result" role="status">
-          <span>Native picked</span><strong>{recommendation}</strong><button onClick={startCamera}>Retake views</button>
+          <img src={recommendation.style.image} alt={recommendation.style.name} />
+          <div><span>Native picked · {recommendation.confidence} confidence</span><strong>{recommendation.style.name}</strong><p>{recommendation.reason}</p></div>
+          <button onClick={retake}>Retake views</button>
         </div>
       )}
+      <p className="observe-privacy">Your three views are analyzed for this recommendation and are not saved to your Native Cuts account.</p>
 
       {open && (
         <div className="camera-modal" role="dialog" aria-modal="true" aria-label="Observe camera">
@@ -129,7 +182,7 @@ const Observe = ({ compact = false }) => {
             <div className="camera-actions">
               <button onClick={capture} disabled={!!error || photos.length === 3}>Capture {photos.length < 3 ? VIEWS[photos.length] : ''}</button>
               <label>Upload instead<input type="file" accept="image/*" capture="user" onChange={upload} /></label>
-              {photos.length > 0 && <button className="camera-quiet" onClick={() => setPhotos((p) => p.slice(0, -1))}>Undo</button>}
+              {photos.length > 0 && <button className="camera-quiet" onClick={() => { setPhotos((p) => p.slice(0, -1)); setRecommendation(null); }}>Undo</button>}
             </div>
             <div className="camera-dots">{VIEWS.map((view, i) => <span key={view} className={i < photos.length ? 'done' : ''}>{view}</span>)}</div>
             {photos.length === 3 && <button className="camera-finish" onClick={close}>Use these views</button>}
